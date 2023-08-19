@@ -1,19 +1,20 @@
 import {
-    Body,
-    Controller,
-    Delete,
-    Get,
-    Param,
-    Patch,
-    Post,
-    Put,
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Put,
 } from '@nestjs/common';
+import { CreateUserDTO } from './dto/create-user.dto';
 
 @Controller('users')
 export class userController {
   @Post()
-  async create(@Body() body) {
-    return { body };
+  async create(@Body() { name, email, password }: CreateUserDTO) {
+    return { name, email, password };
   }
 
   @Get()
